@@ -1,6 +1,6 @@
 # jest-css-modules-processor
 
-You can use this moudule to realize `import` / `require` `.css` file when you run `jest`.
+You can use this module to realize `import` / `require` `.css` file when you run `jest`.
 And this module also support `localIdentName`!😎
 
 Inspired by [css-modules-require-hook](https://github.com/css-modules/css-modules-require-hook) and [jest-css-modules-transform](https://github.com/Connormiha/jest-css-modules-transform).
