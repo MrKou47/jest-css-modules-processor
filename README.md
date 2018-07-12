@@ -51,4 +51,4 @@ You should add `jestCSSProcessor` field in your `package.json`.
 |resolve| resolveOpts|no|
 |rootDir| same as webpack context option|no|
 
-Usually, you just need to set the `generateScopedName` option. And it should same as `localIndentName` value which you set in the `webpack.config.js`
+Usually, you just need to set the `generateScopedName` option. And it should same as `localIndentName` value which you setted in the `webpack.config.js`
