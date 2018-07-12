@@ -1,6 +1,6 @@
 {
   "name": "jest-css-modules-processor",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -39,7 +39,10 @@
   },
   "jest": {
     "testRegex": "/__tests__/.*\\.test\\.js$",
-    "testPathIgnorePatterns": ["/node_modules/", "/__tests__/config\\.spec\\.js$"],
+    "testPathIgnorePatterns": [
+      "/node_modules/",
+      "/__tests__/config\\.spec\\.js$"
+    ],
     "transform": {
       ".+\\.(css|styl|less|sass|scss)$": "<rootDir>/src/index.js"
     },
