@@ -14,11 +14,6 @@ const LocalByDefault = require('postcss-modules-local-by-default');
 const ExtractImports = require('postcss-modules-extract-imports');
 const ResolveImports = require('postcss-modules-resolve-imports');
 
-// const debugFetch = require('debug')('css-modules:fetch');
-// const debugSetup = require('debug')('css-modules:setup');
-
-// const validate = require('./validate');
-// const attachHook = require('./attachHook');
 const { transformTokens } = require('./transformTokens');
 
 const renderModule = tokens => `
