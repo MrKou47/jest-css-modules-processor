@@ -1,7 +1,6 @@
 
-const { assign, identity } = require('lodash');
+const { assign } = require('lodash');
 const path = require('path');
-const { readFileSync } = require('fs');
 
 const genericNames = require('generic-names');
 
@@ -25,25 +24,35 @@ const renderModule = tokens => `
   module.exports = exports.default;
 `;
 
+
+/**
+ * config
+ * @param {boolean|string} camelCase same as css-loader?cameCase
+ * @param {string} devMode NODE_ENV === 'development'
+ * @param {function} processCss process(transformedCSS, filename)
+ * @param {object} processOptions  http://api.postcss.org/global.html#processOptions
+ * @param {string} createImportedName https://github.com/css-modules/postcss-modules-extract-imports/blob/master/src/index.js#L73
+ * @param {string} generateScopedName for example '[name]__[local]___[hash:base64:5]'
+ * @param {string} mode local or global
+ * @param {object} resolve resolveOpts
+ * @param {string} rootDir same as webpack context option
+ */
 module.exports = {
   process(code, filePath) {
     const ext = path.extname(filePath).slice(1);
     // eslint-disable-next-line
-    const config = require(path.resolve('package.json')).jestCSSProcessor;
+    const config = require(path.resolve('package.json')).jestCSSProcessor || {};
     const {
       camelCase,
       devMode,
-      preprocessCss = identity,
       processCss,
-      processorOpts,
+      processOptions,
       createImportedName,
       generateScopedName,
-      hashPrefix,
       mode,
       resolve: resolveOpts,
       rootDir: context = process.cwd(),
     } = config;
-      // validate(arguments[0]);
 
     const tokensByFile = {};
 
@@ -55,9 +64,7 @@ module.exports = {
     let scopedName;
 
     if (generateScopedName) {
-      scopedName = typeof generateScopedName !== 'function'
-        ? genericNames(generateScopedName, { context, hashPrefix }) //  for example '[name]__[local]___[hash:base64:5]'
-        : generateScopedName;
+      scopedName = genericNames(generateScopedName, { context });
     } else {
       // small fallback
       scopedName = (local, filename) => Scope.generateScopedName(local, path.relative(context, filename));
@@ -94,9 +101,9 @@ module.exports = {
       let tokens = tokensByFile[filename];
       if (tokens) return tokens;
 
-      const source = preprocessCss(readFileSync(filename, 'utf8'), filename);
+      const source = code;
       // https://github.com/postcss/postcss/blob/master/docs/api.md#processorprocesscss-opts
-      const lazyResult = runner.process(source, assign({}, processorOpts, { from: filename }));
+      const lazyResult = runner.process(source, assign({}, processOptions, { from: filename }));
 
       // https://github.com/postcss/postcss/blob/master/docs/api.md#lazywarnings
       lazyResult.warnings().forEach(message => console.warn(message.text));
