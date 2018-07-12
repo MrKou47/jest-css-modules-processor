@@ -10,7 +10,12 @@
     "type": "git",
     "url": "git+https://github.com/MrKou47/jest-css-modules-processor.git"
   },
-  "keywords": [],
+  "keywords": [
+    "jest",
+    "jest-plugin",
+    "jest-css-moudles",
+    "css-modules"
+  ],
   "author": "",
   "license": "ISC",
   "bugs": {
