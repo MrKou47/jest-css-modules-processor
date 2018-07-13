@@ -34,7 +34,7 @@ You should add `jestCSSProcessor` field in your `package.json`.
 // package.json
 {
   "jestCSSProcessor": {
-    // your config
+    "generateScopedName": "[name]__[local]___[hash:base64:5]"
   }
 }
 ```
