@@ -9,7 +9,6 @@ function camelizeDashes(str) {
   return str.replace(/-+(\w)/g, (m, letter) => letter.toUpperCase());
 }
 
-
 const camelizeKeys = (acc, value, key) => {
   const camelizedKey = camelCase(key);
   if (camelizedKey !== key) acc[camelizedKey] = value;
