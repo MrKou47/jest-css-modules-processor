@@ -19,8 +19,8 @@ Just add transform field for your jest config.
 // package.json
 {
   "jest": {
-    "transform": {
-      ".+\\.(css)$": "jest-css-modules-processor"
+    "moduleNameMapper": {
+      ".+\\.(css)$": "<rootDir>/node_modules/jest-css-modules-processor/src/index.js"
     },
   }
 }
@@ -34,7 +34,7 @@ You should add `jestCSSProcessor` field in your `package.json`.
 // package.json
 {
   "jestCSSProcessor": {
-    // your config
+    "generateScopedName": "[name]__[local]___[hash:base64:5]"
   }
 }
 ```
