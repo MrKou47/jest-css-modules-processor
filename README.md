@@ -19,9 +19,10 @@ Just add transform field for your jest config.
 // package.json
 {
   "jest": {
-    "moduleNameMapper": {
-      ".+\\.(css)$": "<rootDir>/node_modules/jest-css-modules-processor/src/index.js"
-    },
+		"transform": {
+			".+\\.(css)$": "jest-css-modules-processor",
+			"^.+\\.jsx?$": "babel-jest"
+		},
   }
 }
 ```
