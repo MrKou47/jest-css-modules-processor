@@ -1,5 +1,5 @@
 {
-  "name": "@mtfe/jest-css-modules-processor",
+  "name": "jest-css-modules-processor",
   "version": "0.0.8",
   "description": "",
   "main": "src/index.js",
