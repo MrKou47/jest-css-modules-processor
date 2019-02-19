@@ -1,7 +1,7 @@
 {
   "name": "jest-css-modules-processor",
   "version": "0.0.8",
-  "description": "",
+  "description": "realize import css during testing",
   "main": "src/index.js",
   "scripts": {
     "test": "jest --no-cache"
