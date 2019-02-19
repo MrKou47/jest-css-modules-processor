@@ -104,7 +104,6 @@ module.exports = {
       const source = code;
       // https://github.com/postcss/postcss/blob/master/docs/api.md#processorprocesscss-opts
       const lazyResult = runner.process(source, assign({}, processOptions, { from: filename }));
-
       // https://github.com/postcss/postcss/blob/master/docs/api.md#lazywarnings
       lazyResult.warnings().forEach(message => console.warn(message.text));
 
