@@ -16,7 +16,6 @@ yarn add jest-css-modules-processor --dev
 Just add transform field for your jest config.
 
 ```json
-// package.json
 {
   "jest": {
     "transform": {
@@ -32,7 +31,6 @@ Just add transform field for your jest config.
 You should add `jestCSSProcessor` field in your `package.json`.
 
 ```json
-// package.json
 {
   "jestCSSProcessor": {
     "generateScopedName": "[name]__[local]___[hash:base64:5]"
